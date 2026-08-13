@@ -1,0 +1,57 @@
+{
+  "dataset": "DWD CDC daily climate summary (Tageswerte KL), stations Frankfurt/Main-Westend (01424) and Frankfurt/Main (01420)",
+  "provider": "Deutscher Wetterdienst (DWD), Climate Data Center (CDC) Open Data area",
+  "pairing_source": "DWD Urban and Regional Climatology program's own urban/rural station pairing table",
+  "pairing_source_url": "https://www.dwd.de/EN/climate_environment/climateresearch/climate_impact/urbanism/urban_climate_stations/urban_climate_stations_node.html",
+  "pairing_context_url": "https://www.dwd.de/EN/ourservices/urban_heatisland/urbanheatisland_en.html",
+  "pairing_verification": "Fetched the pairing table page's raw HTML directly with curl (not only an AI summary) on 2026-08-13 and confirmed the literal substring 'Frankfurt/Main-Westend 01424 ... Frankfurt/Main 01420' appears, immediately followed by CDC Open Data links for both station IDs pointing at the standard opendata.dwd.de air_temperature directory.",
+  "stations": {
+    "urban": {
+      "name": "Frankfurt/Main-Westend",
+      "dwd_station_id": "01424",
+      "role": "urban station (DWD designation)",
+      "latitude": 50.1269,
+      "longitude": 8.6694,
+      "elevation_m": 120.78,
+      "location_note": "Relocated slightly within Westend on 2008-07-01 (from 50.1255/8.6537, 107.00 m); both periods are within the record used.",
+      "daily_kl_record_start": "1985-11-01"
+    },
+    "reference": {
+      "name": "Frankfurt/Main",
+      "dwd_station_id": "01420",
+      "role": "rural/reference counterpart (DWD's own label; physically Frankfurt Airport, an open semi-paved site, not a remote rural village -- see docs/research-protocol.md)",
+      "latitude": 50.0259,
+      "longitude": 8.5213,
+      "elevation_m": 99.7,
+      "location_note": "Relocated slightly on 2014-10-22 (from 50.0449/8.5979, 112.00 m); both periods are within the record used.",
+      "daily_kl_record_start": "1935-07-01"
+    }
+  },
+  "variable_used": {
+    "code": "TMK",
+    "meaning": "Tagesmittel der Temperatur (daily mean 2 m air temperature)",
+    "unit": "degrees Celsius",
+    "missing_value_sentinel": "-999",
+    "computation_note": "Per each station's own Metadaten_Parameter_klima_tag_<id>.txt: TMK=(TT1+TT2+(TT3*2))/4 for the pre-2001 observation era, an hourly arithmetic mean of at least 21 hourly SYNOP-derived values from 2001-04-01 onward."
+  },
+  "source_urls": {
+    "directory_listing_verified": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/historical/",
+    "urban_station_archive": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/historical/tageswerte_KL_01424_19851101_20251231_hist.zip",
+    "reference_station_archive": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/historical/tageswerte_KL_01420_19350701_20251231_hist.zip",
+    "station_description_file": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/historical/KL_Tageswerte_Beschreibung_Stationen.txt",
+    "terms_of_use_pdf": "https://opendata.dwd.de/climate_environment/CDC/Terms_of_use.pdf"
+  },
+  "accessed": "2026-08-13",
+  "snapshot_pinning_note": "DWD's 'recent/' directory (*_akt.zip) updates daily and is NOT used for this frozen registry; only the 'historical/' archives (ending 2025-12-31 for both stations as of the access date above) are used, specifically so a later re-run of scripts/fetch_stations.py against the same URLs is very unlikely to silently change the committed registry. This is a pinned snapshot of DWD's historical/ archives as they existed on the access date, not a perpetually-fresh live feed. See docs/research-protocol.md, 'Reproducibility and snapshot pinning'.",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0), per the exact wording of https://opendata.dwd.de/climate_environment/CDC/Terms_of_use.pdf (status: Mai 2024), fetched and read directly: \"The Creative Commons BY 4.0 - Licence 'CC BY 4.0' apply. For detailed information see https://www.dwd.de/copyright\"",
+  "attribution": "Deutscher Wetterdienst (DWD), Climate Data Center (CDC), https://opendata.dwd.de",
+  "raw_file_committed": false,
+  "raw_file_reason": "CC BY 4.0 permits redistribution, but the raw archives are re-downloaded at reproduction time by scripts/fetch_stations.py into data/external/ (gitignored) to avoid committing large binary station archives and to keep the repository's own copy always traceable to a live, re-verifiable DWD URL, matching this maintainer's established pattern (see frb-atlas's data/provenance.json).",
+  "sanity_checks_enforced_by_fetch_script": [
+    "each station's produkt_klima_tag_*.txt file is non-empty and has the expected semicolon-delimited header including STATIONS_ID, MESS_DATUM, TMK",
+    "MESS_DATUM parses as a valid YYYYMMDD date for every row",
+    "no duplicate MESS_DATUM within a single station's file (first occurrence kept, duplicates logged)",
+    "every non-missing TMK value lies within the sanity range [-30, 40] degrees C",
+    "STATIONS_ID column matches the requested station ID for every row"
+  ]
+}
