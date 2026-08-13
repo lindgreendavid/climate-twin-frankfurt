@@ -38,9 +38,11 @@ const elevationDiffM = URBAN.elevationM - REFERENCE.elevationM;
 // so both markers sit inside the drawing area with equal margin.
 const ORIGIN = { lat: (URBAN.lat + REFERENCE.lat) / 2, lon: (URBAN.lon + REFERENCE.lon) / 2 };
 
-const WIDTH = 760;
-const HEIGHT = 480;
-const MARGIN = 90;
+// Matches the wide, flat aspect ratio the site's other figures use (annual-trend-chart
+// is 900x340, ~2.6:1) so the map doesn't dominate the page relative to its neighbors.
+const WIDTH = 900;
+const HEIGHT = 360;
+const MARGIN = 80;
 
 const projected = STATIONS.map((station) => ({
   ...station,

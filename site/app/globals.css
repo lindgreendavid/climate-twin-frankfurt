@@ -115,7 +115,7 @@ thead th { position: sticky; top: 0; background: var(--white); }
 .cooler { color: var(--sky-text); font-weight: 700; }
 
 .map-card { border: 1px solid var(--ink); background: var(--white); padding: 26px; margin-bottom: 18px; }
-.map-figure { position: relative; width: 100%; aspect-ratio: 760 / 480; background: #eee3cf; border: 1px solid var(--line); }
+.map-figure { position: relative; width: 100%; max-width: 900px; aspect-ratio: 900 / 360; background: #eee3cf; border: 1px solid var(--line); }
 .map-schematic { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .map-schematic text { font: 11px var(--font-geist-mono); fill: var(--muted); }
 .map-link-line { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 6 5; }
