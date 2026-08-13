@@ -103,7 +103,8 @@ section { scroll-margin-top: 24px; }
 
 .data-alternative { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
 .data-alternative summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
-.table-scroll { max-height: 420px; overflow: auto; margin-top: 8px; }
+.table-scroll { width: 100%; max-width: 100%; min-width: 0; max-height: 420px; overflow: auto; margin-top: 8px; }
+.table-scroll table { min-width: 600px; }
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
 caption { text-align: left; font-weight: 700; padding: 10px 0; }
 th, td { padding: 9px; text-align: left; border-bottom: 1px solid var(--line); }
@@ -200,8 +201,8 @@ footer a { font-size: 12px; text-decoration: underline; text-underline-offset: 4
   .section-heading { grid-template-columns: 1fr; gap: 24px; }
   .stat-row { grid-template-columns: 1fr; }
   .stat-row article { border-right: 0; border-bottom: 1px solid #3a2a17; }
-  .source-list a { grid-template-columns: 1fr 30px; }
-  .source-list strong, .source-list p { grid-column: 1; }
+  .source-list a { grid-template-columns: minmax(0, 1fr) 30px; }
+  .source-list strong, .source-list p { grid-column: 1; min-width: 0; overflow-wrap: anywhere; }
   .source-list b { grid-column: 2; grid-row: 1; }
   footer { align-items: flex-start; flex-direction: column; }
 }
