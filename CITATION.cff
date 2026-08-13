@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. Please also cite the underlying DWD Climate Data Center data separately (see data/provenance.json)."
+title: "Climate Twin Frankfurt"
+type: software
+version: 0.1.0
+date-released: 2026-08-13
+authors:
+  - family-names: Lindgreen
+    given-names: David
+repository-code: "https://github.com/lindgreendavid/climate-twin-frankfurt"
+license: MIT
+keywords:
+  - urban heat island
+  - Frankfurt
+  - DWD
+  - climate data
+  - reproducible research
+references:
+  - type: data
+    title: "DWD CDC Open Data: daily climate summary (Tageswerte KL), stations 01424 and 01420"
+    authors:
+      - name: "Deutscher Wetterdienst (DWD), Climate Data Center (CDC)"
+    year: 2026
+    url: "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/"
+    license: "CC-BY-4.0"
