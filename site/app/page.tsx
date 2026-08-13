@@ -5,6 +5,8 @@ import { GapSummaryTable } from "./gap-summary-table";
 import { DailyDataTable } from "./daily-data-table";
 import { StationMap } from "./station-map";
 
+export const dynamic = "force-static";
+
 const registry = registryJson as unknown as Registry;
 const { period, gap, trend, annual_means, daily_series, stations, year_coverage } = registry;
 
