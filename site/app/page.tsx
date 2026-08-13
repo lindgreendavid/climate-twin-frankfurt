@@ -41,7 +41,7 @@ export default function Home() {
         <section className="hero">
           <div className="eyebrow">
             <span>DWD daily-KL reanalysis</span>
-            <span>v0.1.0 · preregistered · frozen registry</span>
+            <span>Product v1.0.0 · preregistered frozen v0.1 registry</span>
           </div>
           <h1>
             Is Frankfurt <em>actually</em> warmer?
@@ -396,7 +396,7 @@ export default function Home() {
             ~
           </span>
           <p>
-            Climate Twin Frankfurt v0.1.0 &middot; MIT-licensed code, CC BY 4.0 DWD data &middot;{" "}
+            Climate Twin Frankfurt product v1.0.0 &middot; frozen v0.1 study &middot; MIT-licensed code, CC BY 4.0 DWD data &middot;{" "}
             <a href="https://github.com/lindgreendavid/climate-twin-frankfurt/blob/main/ACCESSIBILITY.md">
               Accessibility statement
             </a>

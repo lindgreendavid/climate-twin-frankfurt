@@ -3,7 +3,12 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [1.0.0] - 2026-08-13
+
+### Added
+
+- Stable product release around the unchanged frozen v0.1 paired-station study.
+- Release audit plus contribution, conduct and security documentation.
 
 ### Fixed
 
