@@ -99,9 +99,10 @@ record (see `annual_means` in the registry for every year's value).
   low-vegetation surroundings are not a pristine rural baseline, and this project did not
   independently verify otherwise. The measured gap should be read as "Westend minus this
   specific reference station," not as an isolated pure urban-canopy signal.
-- **Elevation and distance differ between the two stations** (station `01424` sits roughly 21 m
-  higher and 14.9 km from station `01420`), which the daily-mean-gap statistic does not
-  separate from any land-cover effect.
+- **Elevation and distance differ between the two stations** (station `01424` sits 21.08 m
+  higher and 15.42 km from station `01420`, by great-circle/haversine distance on the
+  coordinates in `data/provenance.json` — see the interactive map's calculation in `site/`),
+  which the daily-mean-gap statistic does not separate from any land-cover effect.
 - **Both stations relocated slightly within the record** (`01420` in 2014-10-22, `01424` in
   2008-07-01, both documented in `data/provenance.json`); this project did not attempt to
   homogenize across those relocations, and a station move could in principle introduce a small
@@ -122,6 +123,15 @@ record (see `annual_means` in the registry for every year's value).
 
 ## Amendment log
 
-No amendments. The analysis in this report matches the preregistered plan in
-`research-protocol.md` exactly; no post-hoc changes were made to the method after generating
-the registry.
+No amendments to the analysis. The statistical findings in this report match the preregistered
+plan in `research-protocol.md` exactly; no post-hoc changes were made to the method after
+generating the registry.
+
+- 2026-08-13: corrected an imprecise incidental figure. The inter-station distance was described
+  as "roughly 14.9 km" with no shown derivation; a later interactive-map feature computed the
+  precise haversine great-circle distance from the same real coordinates in
+  `data/provenance.json` as 15.42 km (formula and working shown in `site/app/geo.ts` and the
+  map's UI). This correction affects only a descriptive aside about station geometry, not any
+  preregistered hypothesis, statistical test, or reported finding. `research-protocol.md` is left
+  as originally written, per this project's own discipline of not editing a frozen protocol
+  document after the fact; this log entry is the disclosed correction.
