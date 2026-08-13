@@ -1,5 +1,9 @@
 # Climate Twin Frankfurt
 
+<p><a href="https://github.com/lindgreendavid/lindgreendavid/tree/main/brand"><img src="https://raw.githubusercontent.com/lindgreendavid/lindgreendavid/main/brand/lab-notes-mark.svg" width="52" align="right" alt="Lab Notes research-cycle mark"></a></p>
+
+**Part of the [Lab Notes Research Portfolio](https://blog-interactive.lindgreendavid.workers.dev/)** · Climate research · Question → evidence → finding → boundary
+
 A reproducible reanalysis of real Deutscher Wetterdienst (DWD) daily station records:
 how much warmer is urban Frankfurt than DWD's own designated rural/reference counterpart,
 with what uncertainty, and has that gap trended over the last ~40 years?
