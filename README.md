@@ -69,7 +69,9 @@ scripts/fetch_stations.py   downloads + verifies both DWD station archives
 scripts/generate_registry.py  builds reports/v0.1-climate-twin-frankfurt-registry.json
 src/climate_twin_frankfurt/ parsing, pairing, statistics, and registry-building code
 reports/                    the frozen, committed v0.1.0 result registry
-site/                       accessible Next.js (vinext/Cloudflare Workers) interactive site
+site/                       accessible Next.js (vinext/Cloudflare Workers) interactive site,
+                            including an interactive station map (real coordinates, computed
+                            distance/elevation gap, no basemap imagery, no mapping library)
 ```
 
 ## Reproducing the analysis

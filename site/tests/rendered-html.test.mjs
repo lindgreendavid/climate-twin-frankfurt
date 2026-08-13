@@ -31,6 +31,32 @@ test("server-renders the finished research site", async () => {
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
 });
 
+test("ships an interactive, accessible station map with a text/table equivalent", async () => {
+  const response = await render();
+  const html = await response.text();
+  // The map section exists and is reachable from primary nav.
+  assert.match(html, /href="#map">The stations<\/a>/);
+  assert.match(html, /Where the two stations actually are/);
+  // Both real stations, by DWD ID, appear as interactive markers.
+  assert.match(html, /class="map-marker map-marker--urban"/);
+  assert.match(html, /class="map-marker map-marker--reference"/);
+  assert.match(html, /aria-pressed="(true|false)"/);
+  // Decorative SVG chrome is described via role="img" + title/desc, not left to guesswork.
+  assert.match(html, /<svg class="map-schematic"[^>]*role="img"/);
+  assert.match(html, /id="station-map-title"/);
+  assert.match(html, /id="station-map-desc"/);
+  // The computed haversine distance and elevation difference are shown with their formula.
+  assert.match(html, /haversine formula/i);
+  assert.match(html, /15\.4\d*[^A-Za-z0-9]*km/);
+  assert.match(html, /21\.08[^A-Za-z0-9]*m/);
+  // A non-interactive, always-visible table equivalent ships alongside the map.
+  assert.match(html, /Station locations, elevation, and the computed distance between them/);
+  assert.match(html, /01424/);
+  assert.match(html, /01420/);
+  // No live tile/mapping requests are wired up -- this stays a self-contained schematic.
+  assert.doesNotMatch(html, /leaflet|mapbox|tile\.openstreetmap|maps\.googleapis/i);
+});
+
 test("ships accessible controls and research boundaries", async () => {
   const [page, layout, styles, packageJson] = await Promise.all([
     readFile(new URL("app/page.tsx", root), "utf8"),

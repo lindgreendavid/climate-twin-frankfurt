@@ -3,6 +3,21 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- `site/app/station-map.tsx`, `site/app/geo.ts`: an interactive station map on the
+  presentation site showing both real DWD station locations (Frankfurt/Main-Westend `01424`
+  and Frankfurt/Main `01420`, coordinates from `data/provenance.json`) as a north-up
+  schematic drawn to true relative scale from those coordinates — not basemap tile imagery
+  and not a live mapping API — with the real straight-line (haversine) distance (15.42 km)
+  and elevation difference (21.08 m) computed and shown with their formula. Each station
+  marker is a focusable/hoverable/clickable button revealing its name, role, elevation, and
+  DWD station ID; a plain accessible table beneath the map carries the same information as
+  text, so the map is never the only way to get it. No mapping library was added as a
+  dependency.
+
 ## [0.1.0] - 2026-08-13
 
 ### Added

@@ -3,6 +3,7 @@ import type { Registry } from "./registry-types";
 import { AnnualTrendChart } from "./annual-trend-chart";
 import { GapSummaryTable } from "./gap-summary-table";
 import { DailyDataTable } from "./daily-data-table";
+import { StationMap } from "./station-map";
 
 const registry = registryJson as unknown as Registry;
 const { period, gap, trend, annual_means, daily_series, stations, year_coverage } = registry;
@@ -27,6 +28,7 @@ export default function Home() {
           <span>Climate Twin Frankfurt</span>
         </div>
         <nav className="nav__links" aria-label="Primary">
+          <a href="#map">The stations</a>
           <a href="#gap">The gap</a>
           <a href="#trend">The trend</a>
           <a href="#decision">Findings</a>
@@ -134,10 +136,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="gap" className="compare" aria-labelledby="gap-heading">
+        <section id="map" className="compare" aria-labelledby="map-heading">
           <div className="section-heading">
             <div>
               <span className="section-index">02</span>
+              <p>Where</p>
+            </div>
+            <h2 id="map-heading">Where the two stations actually are</h2>
+          </div>
+
+          <p className="uncertainty-note" style={{ marginBottom: 24 }}>
+            A north-up schematic drawn to real scale from the coordinates in{" "}
+            <code>data/provenance.json</code> &mdash; not basemap imagery and not a live map
+            service. Hover, click, or tab to a marker for that station&apos;s details; the table
+            below carries the same information as accessible text.
+          </p>
+
+          <StationMap />
+        </section>
+
+        <section id="gap" className="compare" aria-labelledby="gap-heading">
+          <div className="section-heading">
+            <div>
+              <span className="section-index">03</span>
               <p>Uncertainty first</p>
             </div>
             <h2 id="gap-heading">The measured gap</h2>
@@ -173,7 +194,7 @@ export default function Home() {
         <section id="trend" className="report" aria-labelledby="trend-heading">
           <div className="section-heading">
             <div>
-              <span className="section-index">03</span>
+              <span className="section-index">04</span>
               <p>Uncertainty first</p>
             </div>
             <h2 id="trend-heading">Has the gap trended?</h2>
@@ -232,7 +253,7 @@ export default function Home() {
         <section id="decision" className="decision" aria-labelledby="decision-heading">
           <div className="section-heading">
             <div>
-              <span className="section-index">04</span>
+              <span className="section-index">05</span>
               <p>Findings</p>
             </div>
             <h2 id="decision-heading">What this does and does not conclude</h2>
@@ -270,7 +291,7 @@ export default function Home() {
         <section id="method" className="method" aria-labelledby="method-heading">
           <div className="section-heading section-heading--light">
             <div>
-              <span className="section-index">05</span>
+              <span className="section-index">06</span>
               <p>Scientific method</p>
             </div>
             <h2 id="method-heading">How this was measured</h2>
@@ -323,7 +344,7 @@ export default function Home() {
         <section id="sources" className="evidence" aria-labelledby="sources-heading">
           <div className="section-heading">
             <div>
-              <span className="section-index">06</span>
+              <span className="section-index">07</span>
               <p>Data &amp; citations</p>
             </div>
             <h2 id="sources-heading">Provenance</h2>
