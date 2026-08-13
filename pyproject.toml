@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "climate_twin_frankfurt"
-version = "0.1.0"
+version = "1.0.0"
 description = "A reproducible reanalysis of real DWD station records: the Frankfurt urban heat island, measured urban-vs-rural, with uncertainty"
 readme = "README.md"
 requires-python = ">=3.10"

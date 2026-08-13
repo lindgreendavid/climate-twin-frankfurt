@@ -10,6 +10,8 @@ with what uncertainty, and has that gap trended over the last ~40 years?
 
 **[Open the live interactive laboratory](https://climate-twin-frankfurt-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://blog-interactive.lindgreendavid.workers.dev/posts/climate-twin-frankfurt-heat-island)**
 
+**Stable product release:** [v1.0.0](https://github.com/lindgreendavid/climate-twin-frankfurt/releases/tag/v1.0.0) · **Study:** unchanged frozen v0.1 registry.
+
 ## What this contributes
 
 - A reanalysis of DWD's own purpose-designated Frankfurt urban/rural station pair

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below. Please also cite the underlying DWD Climate Data Center data separately (see data/provenance.json)."
 title: "Climate Twin Frankfurt"
 type: software
-version: 0.1.0
+version: 1.0.0
 date-released: 2026-08-13
 authors:
   - family-names: Lindgreen
