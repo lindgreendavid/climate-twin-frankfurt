@@ -4,8 +4,7 @@ A reproducible reanalysis of real Deutscher Wetterdienst (DWD) daily station rec
 how much warmer is urban Frankfurt than DWD's own designated rural/reference counterpart,
 with what uncertainty, and has that gap trended over the last ~40 years?
 
-**Live site:** https://climate-twin-frankfurt-interactive.lindgreendavid.workers.dev
-(not yet deployed — link is reserved for the reviewed deployment)
+**[Open the live interactive laboratory](https://climate-twin-frankfurt-interactive.lindgreendavid.workers.dev)**
 
 ## What this contributes
 
