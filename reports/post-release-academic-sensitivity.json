@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "status": "post-release sensitivity; does not alter the frozen v0.1 registry",
+  "method": {
+    "estimator": "same OLS slope with Newey-West heteroskedasticity-and-autocorrelation-consistent covariance",
+    "hac_lags": 3,
+    "critical_distribution": "Student t with 38 degrees of freedom"
+  },
+  "n_years": 40,
+  "slope_c_per_year": -0.0031449423,
+  "ols_residual_lag1_correlation": 0.65746647,
+  "hac_standard_error": 0.0023358126,
+  "hac_95_ci": [
+    -0.0078735477,
+    0.0015836631
+  ],
+  "hac_two_sided_p_value": 0.18614973,
+  "interpretation": "The serial-correlation-robust interval includes zero, so the preregistered conclusion of no statistically detectable linear trend is unchanged."
+}

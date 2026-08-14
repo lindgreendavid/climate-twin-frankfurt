@@ -3,6 +3,13 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- Add a reproducible Newey–West sensitivity for serially correlated annual trend residuals and
+  clarify that non-overlapping marginal seasonal intervals are not a formal seasonal contrast.
+
 ## [1.0.0] - 2026-08-13
 
 ### Added

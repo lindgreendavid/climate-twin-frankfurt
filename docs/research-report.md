@@ -43,10 +43,10 @@ heatwave-conditional maximum, per the preregistered protocol; a different variab
 plausibly show a larger gap, and this project does not claim otherwise.
 
 Spring (MAM) shows the largest mean gap (+0.541 °C) and autumn (SON) the smallest
-(+0.374 °C); their confidence intervals do not overlap, so this seasonal difference itself
-looks real in this record, though this project did not preregister a formal test for
-season-to-season differences and reports this as a descriptive observation, not a hypothesis
-test result.
+(+0.374 °C). Their marginal confidence intervals do not overlap, which is compatible with a
+seasonal contrast, but it is not a formal test of the spring-minus-autumn difference. Because no
+season-to-season contrast was preregistered, this remains descriptive and supports no standalone
+seasonal hypothesis claim.
 
 ## Uncertainty first: the trend
 
@@ -69,6 +69,18 @@ slightly negative (a marginal narrowing), but with R² = 0.063 the year-to-year 
 annual mean gap is mostly not explained by a linear year trend at all; annual means swing
 from roughly +0.28 °C (2025) to +0.72 °C (2005) with no clear monotonic direction across the
 record (see `annual_means` in the registry for every year's value).
+
+The classical OLS interval assumes an error structure that is too simple for these annual data:
+the fitted residuals have lag-1 correlation **0.657**. A post-release Newey–West sensitivity
+(three lags; same slope) gives a wider 95% interval **[-0.00787, +0.00158] °C/year** and
+two-sided p = **0.186**. The conclusion is unchanged—no linear trend is statistically detected—
+but the serial-correlation-robust interval is the preferred uncertainty sensitivity. It is
+machine-readable in
+[`reports/post-release-academic-sensitivity.json`](../reports/post-release-academic-sensitivity.json).
+The covariance estimator follows Newey and West (1987,
+[doi:10.2307/1913610](https://doi.org/10.2307/1913610)); the need to account for temporal
+autocorrelation when assessing climate trends is also demonstrated by Santer et al. (2000,
+[doi:10.1029/1999JD901105](https://doi.org/10.1029/1999JD901105)).
 
 ## What this project does and does not conclude
 
@@ -120,6 +132,9 @@ record (see `annual_means` in the registry for every year's value).
   means; if the true year-to-year pattern is non-linear (e.g. driven by specific hot/cold
   years or multi-year cycles), a linear model would not detect it, and this project did not
   fit any more flexible model after seeing the result.
+- **Serial dependence in annual residuals.** The preregistered classical OLS confidence interval
+  does not model this dependence. The post-release HAC sensitivity widens the interval and leaves
+  the null conclusion unchanged; neither interval establishes that the true slope is exactly zero.
 
 ## Amendment log
 

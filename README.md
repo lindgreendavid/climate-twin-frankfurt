@@ -22,7 +22,9 @@ with what uncertainty, and has that gap trended over the last ~40 years?
   time period (1985-11-01 to 2025-12-31, bounded by both stations' overlapping daily record),
   exact quality-control rule (drop any day where either station's `TMK` is DWD's `-999`
   missing-value sentinel), and exact statistics (a block bootstrap 95% CI on the mean daily
-  gap, and an OLS trend on annual mean gaps with a classical CI).
+  gap, and an OLS trend on annual mean gaps with a classical CI). A post-release Newey–West
+  sensitivity accounts for serial correlation in the annual trend residuals without changing
+  the frozen analysis.
 - A frozen, reproducible result registry (`reports/v0.1-climate-twin-frankfurt-registry.json`)
   built deterministically from a **pinned snapshot** of DWD's `historical/` archives, checked
   byte-for-byte in CI against a fresh re-fetch and re-generation.
