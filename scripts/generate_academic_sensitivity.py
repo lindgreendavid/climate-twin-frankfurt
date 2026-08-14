@@ -15,6 +15,11 @@ OUTPUT = ROOT / "reports" / "post-release-academic-sensitivity.json"
 HAC_LAGS = 3
 
 
+def _stable(value: float) -> float:
+    """Quantize computed results to a platform-stable scientific precision."""
+    return float(f"{float(value):.12g}")
+
+
 def main() -> None:
     registry = json.loads(INPUT.read_text(encoding="utf-8"))
     years = registry["year_coverage"]["included_years"]
@@ -54,11 +59,14 @@ def main() -> None:
             "critical_distribution": f"Student t with {degrees_of_freedom} degrees of freedom",
         },
         "n_years": len(x),
-        "slope_c_per_year": slope,
-        "ols_residual_lag1_correlation": float(np.corrcoef(residuals[:-1], residuals[1:])[0, 1]),
-        "hac_standard_error": standard_error,
-        "hac_95_ci": [slope - critical * standard_error, slope + critical * standard_error],
-        "hac_two_sided_p_value": p_value,
+        "slope_c_per_year": _stable(slope),
+        "ols_residual_lag1_correlation": _stable(np.corrcoef(residuals[:-1], residuals[1:])[0, 1]),
+        "hac_standard_error": _stable(standard_error),
+        "hac_95_ci": [
+            _stable(slope - critical * standard_error),
+            _stable(slope + critical * standard_error),
+        ],
+        "hac_two_sided_p_value": _stable(p_value),
         "interpretation": (
             "The serial-correlation-robust interval includes zero, so the preregistered "
             "conclusion of no statistically detectable linear trend is unchanged."

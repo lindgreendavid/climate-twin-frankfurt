@@ -7,13 +7,13 @@
     "critical_distribution": "Student t with 38 degrees of freedom"
   },
   "n_years": 40,
-  "slope_c_per_year": -0.0031449422873066715,
-  "ols_residual_lag1_correlation": 0.6574664733467973,
-  "hac_standard_error": 0.0023358126011448874,
+  "slope_c_per_year": -0.00314494228731,
+  "ols_residual_lag1_correlation": 0.657466473347,
+  "hac_standard_error": 0.00233581260114,
   "hac_95_ci": [
-    -0.007873547685056418,
-    0.0015836631104430752
+    -0.00787354768506,
+    0.00158366311044
   ],
-  "hac_two_sided_p_value": 0.1861497331371311,
+  "hac_two_sided_p_value": 0.186149733137,
   "interpretation": "The serial-correlation-robust interval includes zero, so the preregistered conclusion of no statistically detectable linear trend is unchanged."
 }
