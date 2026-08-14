@@ -204,8 +204,9 @@ export default function Home() {
 
           <p className="uncertainty-note" style={{ marginBottom: 24 }}>
             Ordinary least squares trend of each included year&apos;s mean gap against year, with a
-            classical 95% confidence interval on the slope. Read the confidence interval and
-            p-value before any &quot;widening&quot; or &quot;narrowing&quot; conclusion.
+            preregistered classical 95% confidence interval on the slope. A post-release
+            serial-correlation-robust sensitivity is reported alongside it. Read both intervals
+            before any &quot;widening&quot; or &quot;narrowing&quot; conclusion.
           </p>
 
           <div className="chart-card">
@@ -225,6 +226,12 @@ export default function Home() {
               p-value does not clear this project&apos;s preregistered &alpha; = 0.05
               threshold: no statistically detectable trend in the urban-reference gap over this
               ~40-year record.</strong>
+            </p>
+            <p className="uncertainty-note">
+              <strong>Serial-correlation sensitivity:</strong> the annual OLS residuals have
+              lag-1 correlation 0.657. A three-lag Newey&ndash;West interval is [-0.0079,
+              +0.0016] &deg;C/year (p = 0.186). It is wider, still crosses zero, and therefore
+              leaves the preregistered conclusion unchanged. <a href="https://github.com/lindgreendavid/climate-twin-frankfurt/blob/main/reports/post-release-academic-sensitivity.json">Inspect the sensitivity result.</a>
             </p>
             <AnnualTrendChart annualMeans={annual_means} trend={trend} />
             <div className="stat-footer">
@@ -273,9 +280,9 @@ export default function Home() {
               <span>Not detected</span>
               <h3>No significant trend over ~40 years</h3>
               <p>
-                The preregistered OLS trend test found a CI that includes zero and p = 0.118.
-                Reported as &quot;not detected at this record length,&quot; not reworded to imply
-                a trend either way.
+                The preregistered OLS interval includes zero (p = 0.118), and a serial-correlation-
+                robust sensitivity does too (p = 0.186). Reported as &quot;not detected at this
+                record length,&quot; not reworded to imply a trend either way.
               </p>
             </article>
             <article>
