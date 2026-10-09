@@ -6,6 +6,15 @@ actually shows, compared against the preregistered plan in
 [`research-protocol.md`](research-protocol.md), reported without suppressing a weak or null
 result.
 
+> **Erratum (2026-10-09).** An earlier version of this report said neither station relocation "coincides with an
+> unusual jump in the annual-mean-gap series". That is contradicted by the series itself: the annual mean gap was
+> 0.72, 0.82 and 0.81 °C in 2005-2007 and 0.36 and 0.27 °C in 2009-2010, straddling the urban station's 2008-07-01
+> relocation. Mean gap in the three years after minus the three years before is -0.43 °C (95% block-bootstrap
+> interval -0.54 to -0.29) at the urban relocation and +0.19 °C (0.10 to 0.27) at the reference relocation, each
+> comparable to the whole reported mean gap of 0.455 °C. The frozen registry and the null-trend conclusion are
+> unchanged, but the mean gap is not a stable property of the pair, and "no trend detected" is not informative about
+> real change while these steps are unmodelled. See "Post-hoc extensions" and Amendment 2.
+
 ## Sample
 
 **14,579 valid paired days** with a non-missing `TMK` at both Frankfurt/Main-Westend (`01424`,
@@ -82,6 +91,38 @@ The covariance estimator follows Newey and West (1987,
 autocorrelation when assessing climate trends is also demonstrated by Santer et al. (2000,
 [doi:10.1029/1999JD901105](https://doi.org/10.1029/1999JD901105)).
 
+## Post-hoc extensions (not preregistered; all results reported)
+
+Source: `src/climate_twin_frankfurt/extensions.py`, `reports/post-release-extensions.json`, regenerated from the raw
+DWD files with `scripts/generate_extensions.py`. Same 30-day block bootstrap as the frozen analysis.
+
+**Other variables.** The gap is not a single number: daily minimum is much larger than the mean, daily maximum barely
+positive.
+
+| Variable | Mean gap (°C) | 95% CI | Newey-West trend (°C/yr, 95% CI) |
+| --- | --- | --- | --- |
+| Daily mean (TMK) | +0.455 | [0.432, 0.477] | -0.0031 [-0.0079, 0.0016] |
+| Daily minimum (TNK) | +1.120 | [1.086, 1.153] | +0.0014 [-0.0077, 0.0106] |
+| Daily maximum (TXK) | +0.120 | [0.098, 0.143] | -0.0029 [-0.0069, 0.0010] |
+
+Spring (MAM) has the largest gap for all three variables. No variable shows a detectable linear trend.
+
+**Relocation steps.** Mean gap (daily mean) in the three years after minus the three years before each documented
+relocation:
+
+| Relocation | Before | After | Difference | 95% CI |
+| --- | --- | --- | --- | --- |
+| Urban station, 2008-07-01 | +0.773 | +0.340 | -0.433 | [-0.544, -0.292] |
+| Reference station, 2014-10-22 | +0.335 | +0.522 | +0.187 | [0.103, 0.267] |
+
+By segment the mean gap is +0.506 (1985-11 to 2008-06), +0.337 (2008-07 to 2014-10) and +0.417 (2014-10 to 2025).
+An annual-mean regression with step terms at 2009 and 2015 and Newey-West errors is too imprecise to separate steps from
+trend with only 40 annual points: slope +0.0019 °C/yr (95% CI -0.0147 to +0.0185), 2009 step -0.188 (-0.485 to +0.108),
+2015 step +0.063 (-0.127 to +0.253). The direct daily-window comparison above is the more precise instrument. For the daily minimum
+the 2015 step is +0.416 (0.214 to 0.617). **Reading:** the single full-period mean averages over inhomogeneous segments, the
+null trend is uninformative while the steps are present, and a "slight" relocation within the same district moved the
+gap by about as much as the whole effect. These are descriptive checks on documented dates, not a homogenization of the series.
+
 ## What this project does and does not conclude
 
 - **Frankfurt/Main-Westend is measurably warmer than the Frankfurt/Main reference station**,
@@ -118,8 +159,8 @@ autocorrelation when assessing climate trends is also demonstrated by Santer et 
 - **Both stations relocated slightly within the record** (`01420` in 2014-10-22, `01424` in
   2008-07-01, both documented in `data/provenance.json`); this project did not attempt to
   homogenize across those relocations, and a station move could in principle introduce a small
-  step-change unrelated to genuine climate change, though neither relocation coincides with an
-  unusual jump in the annual-mean-gap series in the frozen registry.
+  step-change unrelated to genuine climate change, and the post-hoc check below shows they do coincide with large
+  steps in the gap (urban: -0.43 °C; reference: +0.19 °C, three-year windows).
 - **Daily mean only.** This project did not analyze daily minimum or maximum temperature, which
   are the variables more commonly associated with larger reported urban heat island
   differences (especially overnight minima); a follow-up using `TNK`/`TXK` (already present in
@@ -150,3 +191,6 @@ generating the registry.
   preregistered hypothesis, statistical test, or reported finding. `research-protocol.md` is left
   as originally written, per this project's own discipline of not editing a frozen protocol
   document after the fact; this log entry is the disclosed correction.
+- 2026-10-09 (Amendment 2): the claim that neither relocation coincides with an unusual jump was found to be false when
+  checked against the annual series while preparing a paper. Post-hoc relocation-step and other-variable analyses were
+  added (all results reported). The frozen v0.1 registry is unchanged and regenerates identically from fresh DWD archives.

@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black}
+
+\title{Station Moves Matter:\\
+Documented Relocations and the Frankfurt Urban--Reference\\
+Temperature Gap, 1985--2025}
+\author{David Lindgreen}
+\date{October 9, 2026 \\[2pt] \small Version 0.1.0 \quad Preprint, not peer reviewed}
+
+\emergencystretch=3em
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We re-analyse the daily temperature difference between two Deutscher Wetterdienst (DWD) stations that DWD itself
+designates as an urban/reference pair, Frankfurt/Main-Westend and Frankfurt/Main (14{,}579 paired days,
+1985--2025). The preregistered result reproduces exactly from freshly downloaded archives: a mean daily-mean gap of
+$+0.455\,^{\circ}$C (95\% block-bootstrap interval 0.432 to 0.478) and no detectable linear trend. A post-hoc check of two
+limitations the original report only mentioned shows the single average is not a stable property of the pair. The
+gap changed by $-0.43\,^{\circ}$C (95\% interval $-0.54$ to $-0.29$) across the urban station's 2008 relocation and by
+$+0.19\,^{\circ}$C (0.10 to 0.27) across the reference station's 2014 relocation, each comparable to the whole mean
+gap, and our earlier statement that neither relocation produced an unusual jump was wrong. The daily-minimum gap
+($+1.12\,^{\circ}$C) is about 2.5 times the daily-mean gap and the daily-maximum gap ($+0.12\,^{\circ}$C) is barely
+positive. A null trend is therefore uninformative while these steps remain unmodelled.
+\end{abstract}
+
+\section{Question}
+How much warmer is urban Frankfurt than DWD's own designated reference counterpart, with what uncertainty, and has the
+gap trended over four decades? We use daily mean temperature (TMK) at station 01424 (Frankfurt/Main-Westend, urban) and
+station 01420 (Frankfurt/Main, an airport that DWD labels the counterpart). The gap is the urban minus the reference value on
+days with both observations. This is a statement about two stations, not about the urban heat island of the whole city.
+
+\section{Preregistered analysis}
+The protocol fixed the stations, the period (1985-11-01 to 2025-12-31), the rule for missing days, a 30-day moving-block
+bootstrap for the mean gap (daily gaps are strongly autocorrelated), and an ordinary least-squares trend on annual mean gaps
+for the 40 years with at least 300 valid paired days. A post-release Newey--West (three-lag) interval~\cite{newey1987} was
+added as a sensitivity because the annual residuals have lag-1 correlation 0.657.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lrrl}
+\toprule
+Period & $n$ days & Mean gap ($^{\circ}$C) & 95\% interval\\
+\midrule
+Full period & 14{,}579 & +0.455 & 0.432 to 0.478\\
+Winter (DJF) & 3{,}641 & +0.489 & 0.453 to 0.522\\
+Spring (MAM) & 3{,}619 & +0.541 & 0.497 to 0.589\\
+Summer (JJA) & 3{,}649 & +0.415 & 0.361 to 0.471\\
+Autumn (SON) & 3{,}670 & +0.374 & 0.341 to 0.406\\
+\bottomrule
+\end{tabular}
+\caption{Preregistered mean gap (daily mean temperature) with block-bootstrap intervals.}
+\end{table}
+The annual-mean trend is $-0.0031\,^{\circ}$C per year (classical 95\% interval $-0.0071$ to $+0.0008$, $p=0.118$; Newey--West
+$-0.0079$ to $+0.0016$, $p=0.186$): no linear trend is detected. All of this regenerates identically from a fresh download
+of the two DWD archives.
+
+\section{Post-hoc extensions}
+The original report named two untested limitations: the daily minimum and maximum (TNK, TXK) might show different gaps, and
+the documented relocations (urban 2008-07-01, reference 2014-10-22) might introduce steps. We tested both with the same
+block bootstrap; none of this was preregistered and every result is reported.
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccc}
+\toprule
+Variable & Mean gap ($^{\circ}$C) & 95\% interval & Newey--West trend ($^{\circ}$C/yr)\\
+\midrule
+Daily mean (TMK) & +0.455 & 0.432 to 0.477 & $-0.0031$ ($-0.0079$ to 0.0016)\\
+Daily minimum (TNK) & +1.120 & 1.086 to 1.153 & +0.0014 ($-0.0077$ to 0.0106)\\
+Daily maximum (TXK) & +0.120 & 0.098 to 0.143 & $-0.0029$ ($-0.0069$ to 0.0010)\\
+\bottomrule
+\end{tabular}
+\caption{The gap by variable. Spring has the largest gap for all three.}
+\end{table}
+\begin{table}[h]
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccc}
+\toprule
+After $-$ before (3-year windows) & TMK & TNK & TXK\\
+\midrule
+Urban move, 2008-07-01 & $-0.433$ ($-0.544$, $-0.292$) & $-0.271$ ($-0.386$, $-0.132$) & $-0.241$ ($-0.370$, $-0.120$)\\
+Reference move, 2014-10-22 & $+0.187$ (0.103, 0.267) & $+0.414$ (0.234, 0.595) & $+0.101$ (0.026, 0.173)\\
+\bottomrule
+\end{tabular}
+\caption{Step in the mean gap across each documented relocation, with block-bootstrap 95\% intervals.}
+\end{table}
+By segment the daily-mean gap is $+0.506$ (1985--2008-06), $+0.337$ (2008-07 to 2014-10) and $+0.417$ (2014-10 onward). The annual
+means make the step visible: 0.72, 0.82 and 0.81\,$^{\circ}$C in 2005--2007 against 0.36 and 0.27\,$^{\circ}$C in 2009--2010. An annual
+regression with level shifts at 2009 and 2015 and Newey--West errors cannot separate steps from trend with only 40 points (slope
+$+0.0019$, 95\% interval $-0.0147$ to $+0.0185$; 2009 step $-0.188$, $-0.485$ to $+0.108$), so the direct window comparison is the
+more precise instrument.
+
+\section{Discussion}
+The documented 2008 move was described as ``slight'' and within the same district, yet the gap fell by about as much as its
+entire full-period mean. The full-period mean therefore averages over three different station histories, and the null
+trend result, which a reader could take as ``the urban heat island is not changing'', says little about real change while
+instrument and siting steps of this size are present. Two caveats apply: three-year windows also contain real
+interannual variability and any true change in the surroundings, so the steps are coincident with, not proven
+caused by, the moves; and the annual regression's wide intervals show the data alone cannot homogenise the series.
+Physically the pattern is coherent with the urban heat island being mainly a night-time phenomenon, with a gap in the daily
+minimum 2.5 times that of the daily mean. A proper estimate of change would need the stations' homogenisation metadata or a
+reference network, which this study does not have.
+
+\section{Correction}
+The earlier report stated that neither relocation coincides with an unusual jump in the annual-mean-gap series. The annual
+series contradicts that. The statement is corrected in the repository (erratum in the report); no frozen registry value changed.
+
+\section{Limitations}
+Two stations and one pairing; the reference is an airport, not a rural site; elevation and distance (15.4\,km) differ; only
+three temperature variables; the three-year window is an arbitrary choice fixed in the code before the step results were seen; and the results are descriptive, not a homogenisation.
+
+\section*{Reproducibility and AI assistance}
+Code, frozen registry, post-hoc extensions and tests:\\
+\url{https://github.com/lindgreendavid/climate-twin-frankfurt}\\
+Interactive laboratory:\\
+\url{https://climate-twin-frankfurt-interactive.lindgreendavid.workers.dev}\\
+The analysis code, tests and drafts of this text were produced with substantial assistance from an AI system (Claude, Anthropic);
+the author is responsible for the content.
+
+\begin{thebibliography}{9}
+\bibitem{newey1987} W.~K. Newey and K.~D. West, A simple, positive semi-definite, heteroskedasticity and autocorrelation
+consistent covariance matrix, \emph{Econometrica} \textbf{55}, 703--708 (1987).
+\end{thebibliography}
+\end{document}

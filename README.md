@@ -12,6 +12,12 @@ with what uncertainty, and has that gap trended over the last ~40 years?
 
 **Stable product release:** [v1.0.0](https://github.com/lindgreendavid/climate-twin-frankfurt/releases/tag/v1.0.0) · **Study:** unchanged frozen v0.1 registry.
 
+**Paper:** [Station Moves Matter (PDF)](paper/paper.pdf) · [citation and status](paper/README.md) · [version history](history.md)
+
+> **Correction (2026-10-09).** The report previously said station relocations produced no unusual jump. They did:
+> the gap fell by 0.43 °C at the 2008 urban relocation and rose by 0.19 °C at the 2014 reference relocation. The
+> daily-minimum gap (+1.12 °C) is also 2.5 times the daily-mean gap. See the report's erratum and the paper.
+
 ## What this contributes
 
 - A reanalysis of DWD's own purpose-designated Frankfurt urban/rural station pair

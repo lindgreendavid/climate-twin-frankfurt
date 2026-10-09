@@ -233,6 +233,13 @@ export default function Home() {
               +0.0016] &deg;C/year (p = 0.186). It is wider, still crosses zero, and therefore
               leaves the preregistered conclusion unchanged. <a href="https://github.com/lindgreendavid/climate-twin-frankfurt/blob/main/reports/post-release-academic-sensitivity.json">Inspect the sensitivity result.</a>
             </p>
+            <p className="uncertainty-note">
+              <strong>Station moves:</strong> a post-hoc check on the two documented relocations shows
+              large steps in the gap (&minus;0.43 &deg;C after the 2008 urban relocation, +0.19 &deg;C
+              after the 2014 reference relocation, three-year windows). The trend above does not model
+              them, so &quot;no trend detected&quot; is not informative about real change.{" "}
+              <a href="https://github.com/lindgreendavid/climate-twin-frankfurt/blob/main/reports/post-release-extensions.json">Inspect the extensions.</a>
+            </p>
             <AnnualTrendChart annualMeans={annual_means} trend={trend} />
             <div className="stat-footer">
               <div>
