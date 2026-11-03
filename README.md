@@ -2,13 +2,13 @@
 
 <p><a href="https://github.com/lindgreendavid/lindgreendavid/tree/main/brand"><img src="https://raw.githubusercontent.com/lindgreendavid/lindgreendavid/main/brand/lab-notes-mark.svg" width="52" align="right" alt="Lab Notes research-cycle mark"></a></p>
 
-**Part of the [Lab Notes Research Portfolio](https://blog-interactive.lindgreendavid.workers.dev/)** · Climate research · Question → evidence → finding → boundary
+**Part of the [Lab Notes Research Portfolio](https://notes.lindgreendavid.com/)** · Climate research · Question → evidence → finding → boundary
 
 A reproducible reanalysis of real Deutscher Wetterdienst (DWD) daily station records:
 how much warmer is urban Frankfurt than DWD's own designated rural/reference counterpart,
 with what uncertainty, and has that gap trended over the last ~40 years?
 
-**[Open the live interactive laboratory](https://climate-twin-frankfurt-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://blog-interactive.lindgreendavid.workers.dev/posts/climate-twin-frankfurt-heat-island)**
+**[Open the live interactive laboratory](https://climate-twin-frankfurt-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://notes.lindgreendavid.com/posts/climate-twin-frankfurt-heat-island)**
 
 **Stable product release:** [v1.0.0](https://github.com/lindgreendavid/climate-twin-frankfurt/releases/tag/v1.0.0) · **Study:** unchanged frozen v0.1 registry.
 
